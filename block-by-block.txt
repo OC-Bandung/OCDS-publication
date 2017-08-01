@@ -1,0 +1,463 @@
+buyer
+buyer/name - K/L/D/I or Agency
+buyer/contactPoint/name - Satuan Kerja
+The common name of the organization. The ID property provides an space for the formal legal name, and so this may either repeat that value, or could provide the common name by which this organization is known. This field could also include details of the department or sub-unit involved in this contracting process.
+
+
+Define the information about buyer parties arrary at beginning of json. See line 23
+ "parties": [
+                {
+                    "id": "birms-2161260",
+                    "name": "Agency ULP Kota Bandung",
+                    "roles": [
+                        "buyer",
+                        "procuringEntity"
+                    ],
+                    "contactPoint": {
+                        "name": "Pak Titan",
+                        "email": "titan@gmail.com",
+                        "telephone": "+1 222 333 4568",
+                        "url": "https://github.com/"
+                    }
+                }
+            ]
+
+
+Then use the information from parties to link in buyer
+"buyer": {
+                "id": "birms-2161260",
+                "name": "Agency ULP Kota Bandung"
+            }
+
+
+******************************************************
+******************************************************
+******************************************************
+
+planning
+planning/rationale - Deskripsi
+The rationale for the procurement provided in free text. More detail can be provided in an attached document.
+
+under planning, add a simple string, see line 72
+
+"rationale": "Deskripsi but there is no example in the exported csv"
+
+
+
+******************************************************
+******************************************************
+******************************************************
+
+planning
+planning/budget/id - MAK
+planning/budget/description - Sumber Dana
+planning/budget/amount/amount - Pagu
+
+A short free text description of the budget source. May be used to provide the title of the budget line, or the programme used to fund this project.
+
+
+under planning, add the following building block
+
+"budget": {
+            "id": "MAK-123",
+            "description": "Sumber Dana example data APBD",
+            "amount": {
+                "amount": 100000,
+                "currency": "IDR"
+            }
+
+******************************************************
+******************************************************
+******************************************************
+
+planning
+planning/budget/project - Program
+planning/budget/projectID - currently says not available, but I wonder if there is some table id that we can use
+
+simpley key value json.
+
+"project": "Program but no example found in the example csv",
+"projectID": "planning-sirup-id-3687636"
+
+******************************************************
+******************************************************
+******************************************************
+
+tender
+tender/id - Kode Lelang
+tender/title - Nama Lelang
+tender/description - Keterangan
+tender/status - Tahapo Lelang Saat ini
+
+simpley key value json.
+
+"id": "asdf-123-000-00001-01-planning-kodelelang",
+"title": "Nama Lelang Belanja Bahan Makanan Dan Minuman Pasien Bulan Januari - Juni 2015",
+"description": "Keterangan -",
+"status": "active",
+
+******************************************************
+******************************************************
+******************************************************
+
+tender
+tender/procurementMethod
+tender/procurementMethodRationale
+tender/awardCriteria
+tender/awardCriteriaDetails
+tender/submissionMethod
+tender/submissionMethodDetails
+
+These fields are marked as blank or not available, but in the exported csv I see a couple of fields that we can use. Here is how those can be modeled.
+
+"procurementMethod": "open",
+"procurementMethodDetails": "metode_pengadaan from tender csv e-Lelang Umum",
+"mainProcurementCategory": "goods",
+"additionalProcurementCategories": [
+    "kategori Pengadaan Barang"
+],
+"awardCriteria": "lowestCost",
+"submissionMethod": [
+    "electronicSubmission"
+],
+"submissionMethodDetails": "metode_dokumen",
+
+******************************************************
+******************************************************
+******************************************************
+
+tender
+tender/value/amount - Nilai HPS Paket
+tender/value/currency - we can use IDR as default
+
+"value": {
+    "amount": 24232,
+    "currency": "IDR"
+},
+
+******************************************************
+******************************************************
+******************************************************
+
+tender
+tender/tenderPeriod - Tahap
+tender/tenderPeriod/startDate - Mulai
+tender/tenderPeriod/endDate - Sampai
+
+"tenderPeriod": {
+    "startDate": "2019-03-15T14:45:00Z",
+    "endDate": "2019-03-25T14:45:00Z",
+    "durationInDays": 5
+},
+
+******************************************************
+******************************************************
+******************************************************
+
+tender
+tender/hasEnquiries - Not available, but maybe we can build this field from data
+tender/enquiryPeriod - Pemberian Penjelasan
+tender/enquiryPeriod/startDate - Mulai
+tender/enquiryPeriod/endDate - Sampai
+
+"hasEnquiries": false,
+"enquiryPeriod": {
+    "startDate": "2019-03-15T14:45:00Z",
+    "endDate": "2019-03-25T14:45:00Z",
+    "durationInDays": 5
+},
+
+
+******************************************************
+******************************************************
+******************************************************
+
+tender
+tender/eligibilityCriteria - Syarat Kualifikasi
+
+simple key - value json
+
+"eligibilityCriteria": "Syarat Kualifikasi",
+
+******************************************************
+******************************************************
+******************************************************
+
+tender/awardPeriod - Pengumuman Pemenang
+tender/awardPeriod/startDate - Mulai
+tender/awardPeriod/endDate - Sampai
+
+"awardPeriod": {
+    "startDate": "2019-03-15T14:45:00Z",
+    "endDate": "2019-03-25T14:45:00Z",
+    "durationInDays": 5
+},
+
+******************************************************
+******************************************************
+******************************************************
+
+tender
+tender/items
+tender/items/id - Non available, but maybe we can build from some table id
+tender/items/description - Kategori
+tender/items/additionalClassifications/description - Keterangan
+
+
+"items": [
+    {
+        "id": "item-id-1293",
+        "description": "Kategori Jasa Konsultansi Badan Usaha",
+        "additionalClassifications": [
+            {
+                "description": "Keterangan"
+            }
+        ]
+    }
+],
+
+******************************************************
+******************************************************
+******************************************************
+
+tender
+tender/numberOfTenderers - No
+
+simple key value 
+
+"numberOfTenderers": 2,
+
+******************************************************
+******************************************************
+******************************************************
+
+tender
+tender/tenderers/identifier/legalName
+tender/tenderers/additionalIdentifiers/id
+
+
+add the tenderers in the parties section at the top 
+
+{
+    "id": "NPWP-12",
+    "name": "Nama Peserta 1",
+    "roles": [
+        "supplier"
+    ],
+    "address": {
+        "streetAddress": "1st street highway",
+        "locality": "Bandung",
+        "region": "Kota Bandung",
+        "postalCode": "2424",
+        "countryName": "Indonesia"
+    }
+},
+
+and then link to them in the tender section.               
+
+"tenderers": [
+    {
+        "id": "NPWP-12",
+        "name": "Nama Peserta 1"
+    },
+    {
+        "id": "NPWP-15",
+        "name": "Nama Peserta 2"
+    }
+],              
+
+******************************************************
+******************************************************
+******************************************************
+
+tender
+tender/procuringEntity/identifier/legalName - Instansi
+tender/procuringEntity/contactPoint/name - Satuan Kerja
+
+add the procuring entity in the parties building block and then link to it in the section as follow
+
+"procuringEntity": {
+    "id": "birms-2161260",
+    "name": "Agency ULP Kota Bandung"
+},
+
+******************************************************
+******************************************************
+******************************************************
+
+tender
+tender/milestones - Tahap Lelang Saat ini
+tender/milestones/title - Tahap
+tender/milestones/dueDate - Mulai/Sampai
+tender/milestones/dateModified - Tanggal Edit
+
+"milestones": [
+    {
+        "id": "mid",
+        "title": "Tahap",
+        "dueDate": "2019-03-25T14:45:00Z",
+        "dateModified": "2019-04-25T14:45:00Z",
+        "dateMet": "2019-03-27T14:45:00Z"
+    }
+]
+
+******************************************************
+******************************************************
+******************************************************
+
+awards
+awards/id - Kode Lelang
+awards/title - Nama Lelang
+awards/date - Pengumuman Pemenang
+
+"award": {
+	"id": "asdf-123-000-00002-02-award-kodelelang",
+	"title": "Nama Lelang",
+	"status": "pending",
+	"date": "2019-03-25T14:45:00Z"
+		...
+		...
+	}
+
+
+******************************************************
+******************************************************
+******************************************************
+
+awards
+awards/value 
+awards/value/amount - Harga Penawaran
+awards/value/currency - Non applicable, but we can use IDR as default
+
+
+"value": {
+    "amount": 1244,
+    "currency": "IDR"
+},
+
+******************************************************
+******************************************************
+******************************************************
+
+awards
+awards/contractPeriod - Pengumuman Pemenang
+awards/contractPeriod/startDate - Mulai
+awards/contractPeriod/endDate - Sampai
+
+"contractPeriod": {
+    "startDate": "2019-03-25T14:45:00Z",
+    "endDate": "2019-03-25T14:45:00Z"
+},
+
+******************************************************
+******************************************************
+******************************************************
+
+awards
+awards/suppliers - Pemenang
+awards/suppliers - Nama Pemenang
+awards/suppliers/identifier - NPWP
+awards/suppliers/identifier/legalName - Nama Pemenang
+awards/suppliers/name - Nama Pemenang
+awards/suppliers/address - Alamat
+
+
+Identify the supplier in parties section like this
+
+{
+    "id": "NPWP-12",
+    "name": "Nama Peserta 1",
+    "roles": [
+        "supplier"
+    ],
+    "address": {
+        "streetAddress": "1st street highway",
+        "locality": "Bandung",
+        "region": "Kota Bandung",
+        "postalCode": "2424",
+        "countryName": "Indonesia"
+    }
+},
+
+Then link to it in the awards section
+
+"suppliers": [
+    {
+        "id": "NPWP-12",
+        "name": "Nama Peserta 1"
+    }
+],
+
+******************************************************
+******************************************************
+******************************************************
+
+awards
+awards/items
+awards/items/id - Non available but maybe we can use a table id
+awards/items/description - Kategori
+
+"items": [
+    {
+        "id": "item-id-1293",
+        "description": "Kategori Jasa Konsultansi Badan Usaha",
+        "additionalClassifications": [
+            {
+                "description": "Keterangan"
+            }
+        ]    
+    }
+]
+
+******************************************************
+******************************************************
+******************************************************
+
+contracts
+contracts/id - non available, let's try to find an id tho
+contracts/awardID - non available, let's try to find an id tho
+contracts/title - Nama Pekerjaan
+
+simple key, value json
+
+"id": "ocds-213czf-000-00009-01-contract",
+"awardID": "353",
+"title": "Nama Pekerjaan",
+
+******************************************************
+******************************************************
+******************************************************
+
+contracts
+contracts/implementation/transactions/receiverOrganization - SKPD/Unit Kerja
+contracts/implementation/transactions/receiverOrganization/id - Kode SKPD/Unit Kerja
+contracts/implementation/transactions/receiverOrganization/legalName - SKPD/Unit Kerja
+contracts/implementation/milestones/description
+
+"implementation" : {
+    "transactions": [
+        {
+            "id" : "transaction-id",
+            "payee": {
+                "id": "NPWP-12",
+                "name": "Nama Peserta 1"
+            }
+        }
+    ]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

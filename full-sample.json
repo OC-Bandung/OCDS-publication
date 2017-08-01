@@ -1,0 +1,207 @@
+{
+    "version": "1.1",
+    "uri": "https://github.com/open-contracting/sample-data/raw/1.1/fictional-example/ocds-213czf-000-00001-01-planning.json",
+    "publishedDate": "2019-01-01T14:45:00Z",
+    "publisher": {
+        "name": "Bandung Integrated Resource Management System"
+    },
+    "license": "http://opendatacommons.org/licenses/pddl/1.0/",
+    "publicationPolicy": "https://github.com/open-contracting/sample-data/",
+    "releases": [
+        {
+            "ocid": "asdf-123-000-00001",
+            "id": "asdf-123-000-00001-01",
+            "language": "id",
+            "date": "2019-03-15T14:45:00Z",
+            "initiationType": "tender",
+            "tag": [
+                "planning",
+                "tender",
+                "award" ,
+                "contract"
+            ],
+            "parties": [
+                {
+                    "id": "birms-2161260",
+                    "name": "Agency ULP Kota Bandung",
+                    "roles": [
+                        "buyer",
+                        "procuringEntity"
+                    ],
+                    "contactPoint": {
+                        "name": "Pak Titan",
+                        "email": "titan@gmail.com",
+                        "telephone": "+1 222 333 4568",
+                        "url": "https://github.com/"
+                    }
+                },
+                {
+                    "id": "NPWP-12",
+                    "name": "Nama Peserta 1",
+                    "roles": [
+                        "supplier"
+                    ],
+                    "address": {
+                        "streetAddress": "1st street highway",
+                        "locality": "Bandung",
+                        "region": "Kota Bandung",
+                        "postalCode": "2424",
+                        "countryName": "Indonesia"
+                    }
+                },
+                {
+                    "id": "NPWP-15",
+                    "name": "Nama Peserta 2",
+                    "roles": [
+                        "supplier"
+                    ],
+                    "address": {
+                        "streetAddress": "2nd street highway",
+                        "locality": "Bandung",
+                        "region": "Kota Bandung",
+                        "postalCode": "35",
+                        "countryName": "Indonesia"
+                    }
+                }
+            ],
+            "buyer": {
+                "id": "birms-2161260",
+                "name": "Agency ULP Kota Bandung"
+            },
+            "planning": {
+                "rationale": "Deskripsi but there is no example in the exported csv",
+                "budget": {
+                    "id": "MAK-123",
+                    "descr  iption": "Sumber Dana example data APBD",
+                    "amount": {
+                        "amount": 100000,
+                        "currency": "IDR"
+                    }
+                },
+                "project": "Program but no example found in the example csv",
+                "projectID": "planning-sirup-id-3687636"
+            },
+            "tender": {
+                "id": "asdf-123-000-00001-01-planning-kodelelang",
+                "title": "Nama Lelang Belanja Bahan Makanan Dan Minuman Pasien Bulan Januari - Juni 2015",
+                "description": "Keterangan -",
+                "status": "active",
+                "procuringEntity": {
+                    "id": "birms-2161260",
+                    "name": "Agency ULP Kota Bandung"
+                },
+                "procurementMethod": "open",
+                "procurementMethodDetails": "metode_pengadaan from tender csv e-Lelang Umum",
+                "mainProcurementCategory": "goods",
+                "additionalProcurementCategories": [
+                    "kategori Pengadaan Barang"
+                ],
+                "awardCriteria": "lowestCost",
+                "submissionMethod": [
+                    "electronicSubmission"
+                ],
+                "submissionMethodDetails": "metode_dokumen",
+                "tenderPeriod": {
+                    "startDate": "2019-03-15T14:45:00Z",
+                    "endDate": "2019-03-25T14:45:00Z",
+                    "durationInDays": 5
+                },
+                "hasEnquiries": false,
+                "enquiryPeriod": {
+                    "startDate": "2019-03-15T14:45:00Z",
+                    "endDate": "2019-03-25T14:45:00Z",
+                    "durationInDays": 5
+                },
+                "value": {
+                    "amount": 24232,
+                    "currency": "IDR"
+                },
+                "eligibilityCriteria": "Syarat Kualifikasi",
+                "awardPeriod": {
+                    "startDate": "2019-03-15T14:45:00Z",
+                    "endDate": "2019-03-25T14:45:00Z",
+                    "durationInDays": 5
+                },
+                "items": [
+                    {
+                        "id": "item-id-1293",
+                        "description": "Kategori Jasa Konsultansi Badan Usaha",
+                        "additionalClassifications": [
+                            {
+                                "description": "Keterangan"
+                            }
+                        ]
+                    }
+                ],
+                "numberOfTenderers": 2,
+                "tenderers": [
+                    {
+                        "id": "NPWP-12",
+                        "name": "Nama Peserta 1"
+                    },
+                    {
+                        "id": "NPWP-15",
+                        "name": "Nama Peserta 2"
+                    }
+                ],
+                "milestones": [
+                    {
+                        "id": "mid",
+                        "title": "Tahap",
+                        "dueDate": "2019-03-25T14:45:00Z",
+                        "dateModified": "2019-04-25T14:45:00Z",
+                        "dateMet": "2019-03-27T14:45:00Z"
+                    }
+                ]
+            },
+            "award": {
+                "id": "asdf-123-000-00002-02-award-kodelelang",
+                "title": "Nama Lelang",
+                "status": "pending",
+                "date": "2019-03-25T14:45:00Z",
+                "value": {
+                    "amount": 1244,
+                    "currency": "IDR"
+                },
+                "contractPeriod": {
+                    "startDate": "2019-03-25T14:45:00Z",
+                    "endDate": "2019-03-25T14:45:00Z"
+                },
+                "suppliers": [
+                    {
+                        "id": "NPWP-12",
+                        "name": "Nama Peserta 1"
+                    }
+                ],
+                "items": [
+                    {
+                        "id": "item-id-1293",
+                        "description": "Kategori Jasa Konsultansi Badan Usaha",
+                        "additionalClassifications": [
+                            {
+                                "description": "Keterangan"
+                            }
+                        ]    
+                    }
+                ]
+            },
+            "contract" : {
+                "id": "ocds-213czf-000-00009-01-contract",
+                "awardID": "353",
+                "title": "Nama Pekerjaan",
+                "implementation" : {
+                    "transactions": [
+                        {
+                            "id" : "transaction-id",
+                            "payee": {
+                                "id": "NPWP-12",
+                                "name": "Nama Peserta 1"
+                            }
+                        }
+                    ]
+                }
+
+            }
+        }
+    ]
+}
