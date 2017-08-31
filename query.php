@@ -1,13 +1,16 @@
 SELECT
 	tpengadaan.pgid, tpengadaan.pid, tpengadaan.kode AS id, 
-        tbl_instansi.nama AS buyer_name,
+        tbl_instansi.nama AS buyer_name  --done,
         tbl_skpd.nama AS buyer_contactpoint_name, 
-        tbl_sirup.nama AS planning_rationale,
-        tpengadaan.kode AS planning_budget_id,
-        sumberdana AS planning_budget_description,
-        tpengadaan.ta AS planning_budget_year,
-        tpengadaan.anggaran AS planning_budget_amount_amount,
+        tbl_sirup.nama AS planning_rationale, --done
+        -- UPDATED
+        tbl_sirup.sirupID AS planning_budget_id, --done
+        tbl_sirup.sumber_dana_string AS planning_budget_description,  --done
+        tbl_sirup.tahun AS planning_budget_year, --done
+        tbl_sirup.pagu AS planning_budget_amount_amount, --done
+         -- END OF UPDATE
         CONCAT('https://sirup.lkpp.go.id/sirup/rekapKldi/D99','/', satker) AS planning_budget_uri,
+
         tpengadaan.pid AS tender_id,
         tpengadaan.namapekerjaan AS tender_title,
         tpengadaan.namakegiatan AS tender_description,
