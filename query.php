@@ -18,7 +18,7 @@ SELECT
         tpengadaan.hps AS tender_value_amount,
         tanggal_awal_pengadaan AS tender_tenderPeriod_startDate,
         tanggal_akhir_pengadaan AS tender_tenderPeriod_endDate,
-		'' AS tender_enquiryPeriod,
+		tahapan AS tender_enquiryPeriod,
 		'' AS tender_enquiryPeriod_startDate,
 		'' AS tender_enquiryPeriod_endDate,
 		'' AS tender_eligibilityCriteria,
