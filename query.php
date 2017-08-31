@@ -18,16 +18,24 @@ SELECT
         tpengadaan.hps AS tender_value_amount,
         tanggal_awal_pengadaan AS tender_tenderPeriod_startDate,
         tanggal_akhir_pengadaan AS tender_tenderPeriod_endDate,
-		tahapan AS tender_enquiryPeriod,
-		'' AS tender_enquiryPeriod_startDate,
-		'' AS tender_enquiryPeriod_endDate,
+        
+        -- UPDATED Wait for table lelang from lpse
+		lelang_jadwal.tahapan_penjelasan_dokumen_lelang AS tender_enquiryPeriod,
+		lelang_jadwal.tahapan_penjelasan_dokumen_lelang_tanggal_awal AS tender_enquiryPeriod_startDate,
+		lelang_jadwal.tahapan_penjelasan_dokumen_lelang_tanggal_akhir AS tender_enquiryPeriod_endDate,
+		-- END OF UPDATE
+		
 		'' AS tender_eligibilityCriteria,
-		'' AS tender_awardPeriod,
-		'' AS tender_awardPeriod_startDate,
-		'' AS tender_awardPeriod_endDate,
+
+		-- UPDATED Wait for table lelang from lpse
+		lelang_jadwal.tahapan_penetapan_pemenang AS tender_awardPeriod,
+		lelang_jadwal.tahapan_penetapan_pemenang_tanggal_awal AS tender_awardPeriod_startDate,
+		lelang_jadwal.tahapan_penetapan_pemenang_tanggal_akhir AS tender_awardPeriod_endDate,
+		-- END OF UPDATE
+
 		'' AS tender_items,
 		(case left(tklasifikasi.kode,2) when '01' then 'Konstruksi' when '02' then 'Pengadaan Barang' when '03' then 'Jasa Konsultansi' when '04' then 'Jasa Lainnya' else 'Pengadaan Barang' end) AS tender_items_description,
-		'' AS tender_numberOfTenderers,
+		lelang.jum_peserta AS tender_numberOfTenderers,
 		'' AS tender_tenderers,
 		'' AS tender_tenderers_identifier_legalName,
 		'' AS tender_tenderers_additionalIdentifiers_id,
